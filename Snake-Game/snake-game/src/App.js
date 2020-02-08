@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Snake from './Snake'
+import Food from './Food'
 
 class App extends Component {
 
