@@ -15,6 +15,7 @@ const initialState = {
   direction: 'right',
     speed: 200,
     food: getRandom(),
+    points: 0,
     snakeBody: [
       [0,0],
       [3, 0]
@@ -99,6 +100,7 @@ class App extends Component {
       })
       this.increaseSpeed()
       this.enlargeSnake()
+      this.increasePoints()
     }
   }
 
@@ -129,6 +131,14 @@ class App extends Component {
     })
   }
 
+  increasePoints = () => {
+    let points = document.getElementById('points')
+    this.setState({
+      points: this.state.points + 1
+    })
+    points.innerText = `Points: ${points}`
+  }
+
   gameOver = () => {
     alert(`Game Over. Snake length is ${this.state.snakeBody.length}`)
     this.setState(initialState)
@@ -142,7 +152,7 @@ class App extends Component {
             <Food body={this.state.food}/>
         </div>
         <div className="chart">
-          <h2>Points: </h2>  
+          <h2 id="points">Points: 0</h2>  
         </div>
       </div>
     );
