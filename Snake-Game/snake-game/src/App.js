@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
+import Snake from './Snake'
 
-function App() {
-  return (
-    <div className="game-grid">
-      <div className="snake" style={{top: 0, left:0}}></div>
-      <div className="snake" style={{top: 0, left:'3%'}}></div>
-      <div className="snake" style={{top: 0, left:'6%'}}></div>
-    </div>
-  );
+class App extends Component {
+
+  state = {
+    snakeBody: [
+      [0,0],
+      [3, 0]
+    ]
+  }
+
+  render() {
+    return (
+      <div className="game-grid">
+        <Snake snakeBody={this.state.snakeBody}/>
+      </div>
+    );
+  }
 }
 
 export default App;
