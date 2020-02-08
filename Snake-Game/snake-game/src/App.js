@@ -11,17 +11,19 @@ const getRandom = () => {
   return [x,y]
 }
 
-class App extends Component {
-
-  state = {
-    direction: 'right',
+const initialState = {
+  direction: 'right',
     speed: 200,
     food: getRandom(),
     snakeBody: [
       [0,0],
       [3, 0]
     ]
-  }
+}
+
+class App extends Component {
+
+  state = initialState
 
   componentDidMount() {
     setInterval(this.moveSnake, this.state.speed)
@@ -88,6 +90,7 @@ class App extends Component {
 
   gameOver = () => {
     alert(`Game Over. Snake length is ${this.state.snakeBody.length}`)
+    this.setState(initialState)
   }
 
   render() {
