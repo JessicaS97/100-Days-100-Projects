@@ -85,24 +85,29 @@ class App extends Component {
   outOfBounds = () => {
     let head = this.state.snakeBody[this.state.snakeBody.length - 1]
     if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
-     
+      this.gameOver()
     }
   }
 
   checkIfEat = () => {
-
+    let head = this.state.snakeBody[this.state.snakeBody.length - 1]
+    let food = this.state.food
+    if (head[0] === food[0] && head[1] === food[1]) {
+      this.enlargeSnake()
+    }
   }
 
   enlargeSnake = () => {
-    
+
   }
 
   checkIfCollapsed = () => {
     let snake = [...this.state.snakeBody]
     let head = snake[snake.length - 1]
+    snake.pop()
     snake.forEach(body => {
       if (head[0] === body[0] && head[1] === body[1]) {
-        
+        this.gameOver()
       }
     })
   }
