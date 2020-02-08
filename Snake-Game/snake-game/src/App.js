@@ -136,9 +136,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="game-grid">
-        <Snake snakeBody={this.state.snakeBody}/>
-        <Food body={this.state.food}/>
+      <div className="grid">
+         <div className="game-grid">
+            <Snake snakeBody={this.state.snakeBody}/>
+            <Food body={this.state.food}/>
+        </div>
+        <div className="chart">
+          <h2>Points: </h2>  
+        </div>
       </div>
     );
   }
