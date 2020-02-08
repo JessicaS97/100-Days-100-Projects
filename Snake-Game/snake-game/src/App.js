@@ -32,6 +32,7 @@ class App extends Component {
 
   componentDidUpdate() {
     this.outOfBounds()
+    this.checkIfCollapsed()
   }
 
   handleKey = e => {
@@ -84,8 +85,16 @@ class App extends Component {
   outOfBounds = () => {
     let head = this.state.snakeBody[this.state.snakeBody.length - 1]
     if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
-      this.gameOver()
+     
     }
+  }
+
+  checkIfEat = () => {
+
+  }
+
+  enlargeSnake = () => {
+    
   }
 
   checkIfCollapsed = () => {
@@ -93,7 +102,7 @@ class App extends Component {
     let head = snake[snake.length - 1]
     snake.forEach(body => {
       if (head[0] === body[0] && head[1] === body[1]) {
-        this.gameOver()
+        
       }
     })
   }
