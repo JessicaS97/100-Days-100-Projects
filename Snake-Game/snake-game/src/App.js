@@ -15,7 +15,7 @@ const initialState = {
   direction: 'right',
     speed: 200,
     food: getRandom(),
-    points: 0,
+    points: 1,
     snakeBody: [
       [0,0],
       [3, 0]
@@ -86,7 +86,7 @@ class App extends Component {
 
   outOfBounds = () => {
     let head = this.state.snakeBody[this.state.snakeBody.length - 1]
-    if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
+    if (head[0] >= 99 || head[1] >= 99 || head[0] < 0 || head[1] < 0) {
       this.gameOver()
     }
   }
@@ -136,7 +136,7 @@ class App extends Component {
     this.setState({
       points: this.state.points + 1
     })
-    points.innerText = `Points: ${points}`
+    points.innerText = `Points: ${this.state.points}`
   }
 
   gameOver = () => {
