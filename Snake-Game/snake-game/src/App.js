@@ -81,7 +81,13 @@ class App extends Component {
 
   outOfBounds = () => {
     let head = this.state.snakeBody[this.state.snakeBody.length - 1]
-    if (head[0] >= 100 || )
+    if (head[0] >= 100 || head[1] >= 100 || head[0] < 0 || head[1] < 0) {
+      this.gameOver()
+    }
+  }
+
+  gameOver = () => {
+    alert(`Game Over. Snake length is ${this.state.snakeBody.length}`)
   }
 
   render() {
