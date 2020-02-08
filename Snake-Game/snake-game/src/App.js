@@ -93,6 +93,7 @@ class App extends Component {
     let head = this.state.snakeBody[this.state.snakeBody.length - 1]
     let food = this.state.food
     if (head[0] === food[0] && head[1] === food[1]) {
+      this.increaseSpeed()
       this.enlargeSnake()
     }
   }
@@ -103,6 +104,14 @@ class App extends Component {
     this.setState({
       snakeBody: newSnakeBody
     })
+  }
+
+  increaseSpeed = () => {
+    if (this.state.speed > 10) {
+      this.setState({
+        speed: this.state.speed - 10
+      })
+    }
   }
 
   checkIfCollapsed = () => {
