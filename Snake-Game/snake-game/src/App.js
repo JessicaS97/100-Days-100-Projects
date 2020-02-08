@@ -139,15 +139,14 @@ class App extends Component {
     points.innerText = `Points: ${this.state.points}`
   }
 
-  checkIfMax = () => {
-    let maxPoints = localStorage.getItem("maxPoints");
-    if (this.state.points > maxPoints) {
-      localStorage.setItem("maxPoints", this.state.points)
-    }
-  }
-
   gameOver = () => {
     alert(`Game Over. Snake length is ${this.state.snakeBody.length}`)
+    let maxStoredPoints = localStorage.getItem("maxStoredPoints");
+    if (!maxStoredPoints || this.state.points > maxStoredPoints) {
+      localStorage.setItem("maxStoredPoints", this.state.points)
+    }
+    let maxPoint = document.getElementById('maxPoint')
+    maxPoint.innerText = `Max Points: ${maxStoredPoints}`
     this.setState(initialState)
   }
 
