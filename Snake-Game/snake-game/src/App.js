@@ -98,7 +98,11 @@ class App extends Component {
   }
 
   enlargeSnake = () => {
-
+    let newSnakeBody = [...this.state.snakeBody]
+    newSnakeBody.unshift([])
+    this.setState({
+      snakeBody: newSnakeBody
+    })
   }
 
   checkIfCollapsed = () => {
