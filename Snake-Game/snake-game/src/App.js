@@ -15,7 +15,7 @@ const initialState = {
   direction: 'right',
     speed: 200,
     food: getRandom(),
-    points: 1,
+    points: 0,
     snakeBody: [
       [0,0],
       [3, 0]
@@ -35,6 +35,7 @@ class App extends Component {
     this.outOfBounds()
     this.checkIfCollapsed()
     this.checkIfEat()
+    this.updatePoints()
   }
 
   handleKey = e => {
@@ -131,22 +132,25 @@ class App extends Component {
     })
   }
 
-  increasePoints = () => {
+  updatePoints = () => {
     let points = document.getElementById('points')
-    this.setState({
-      points: this.state.points + 1
-    })
-    points.innerText = `Points: ${this.state.points}`
-  }
-
-  gameOver = () => {
-    alert(`Game Over. Snake length is ${this.state.snakeBody.length}`)
     let maxStoredPoints = localStorage.getItem("maxStoredPoints");
     if (!maxStoredPoints || this.state.points > maxStoredPoints) {
       localStorage.setItem("maxStoredPoints", this.state.points)
     }
     let maxPoint = document.getElementById('maxPoint')
     maxPoint.innerText = `Max Points: ${maxStoredPoints}`
+    points.innerText = `Points: ${this.state.points}`
+  }
+
+  increasePoints = () => {
+    this.setState({
+      points: this.state.points + 1
+    })
+  }
+
+  gameOver = () => {
+    alert(`Game Over`)
     this.setState(initialState)
   }
 
