@@ -95,7 +95,7 @@ class App extends Component {
     let food = this.state.food
     if (head[0] === food[0] && head[1] === food[1]) {
       this.setState({
-        food: this.getRandom()
+        food: getRandom()
       })
       this.increaseSpeed()
       this.enlargeSnake()
