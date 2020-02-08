@@ -6,8 +6,8 @@ import Food from './Food'
 const getRandom = () => {
   let min = 1
   let max = 98
-  let x = Math.floor((Math.random() * (max-min+1)+min)/2)*2
-  let y = Math.floor((Math.random() * (max-min+1)+min)/2)*2
+  let x = Math.floor((Math.random() * (max-min+1)+min)/3)*3
+  let y = Math.floor((Math.random() * (max-min+1)+min)/3)*3
   return [x,y]
 }
 
@@ -26,6 +26,10 @@ class App extends Component {
   componentDidMount() {
     setInterval(this.moveSnake, this.state.speed)
     document.onkeydown = this.handleKey
+  }
+
+  componentDidUpdate() {
+    this.outOfBounds()
   }
 
   handleKey = e => {
@@ -73,6 +77,11 @@ class App extends Component {
     this.setState({
       snakeBody: body
     })
+  }
+
+  outOfBounds = () => {
+    let head = this.state.snakeBody[this.state.snakeBody.length - 1]
+    if (head[0] >= 100 || )
   }
 
   render() {
