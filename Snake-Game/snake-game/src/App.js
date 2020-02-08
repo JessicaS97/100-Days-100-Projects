@@ -139,6 +139,13 @@ class App extends Component {
     points.innerText = `Points: ${this.state.points}`
   }
 
+  checkIfMax = () => {
+    let maxPoints = localStorage.getItem("maxPoints");
+    if (this.state.points > maxPoints) {
+      localStorage.setItem("maxPoints", this.state.points)
+    }
+  }
+
   gameOver = () => {
     alert(`Game Over. Snake length is ${this.state.snakeBody.length}`)
     this.setState(initialState)
@@ -152,7 +159,8 @@ class App extends Component {
             <Food body={this.state.food}/>
         </div>
         <div className="chart">
-          <h2 id="points">Points: 0</h2>  
+          <h2 id="points">Points: 0</h2>
+          <h2 id="maxPoint">Max Points: 0</h2>  
         </div>
       </div>
     );
