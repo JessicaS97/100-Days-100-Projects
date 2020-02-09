@@ -1,3 +1,6 @@
+## Idea
+Counter with animated dynamic background depending on the season chosen
+
 ## Link to code
 https://codepen.io/JessicaS97/pen/OJPeGBL
 
