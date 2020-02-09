@@ -7,7 +7,7 @@ https://codepen.io/JessicaS97/pen/OJPeGBL
 ## Design
 
 <img src="pic1.png">
-<img src="pic2.png">
+<img src="pic3.png">
 <img src="pic4.png">
 
 ## Built with
